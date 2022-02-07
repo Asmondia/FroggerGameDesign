@@ -94,7 +94,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -142,12 +142,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_0
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 160
-        width: 14
-        height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_1
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 160
-        width: 14
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_2
       rect:
         serializedVersion: 2
-        x: 113
+        x: 112
         y: 160
-        width: 14
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_3
       rect:
         serializedVersion: 2
-        x: 161
+        x: 160
         y: 160
-        width: 14
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,12 +226,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_4
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 112
-        width: 14
-        height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_5
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 112
-        width: 14
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_6
       rect:
         serializedVersion: 2
-        x: 113
+        x: 112
         y: 112
-        width: 14
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_7
       rect:
         serializedVersion: 2
-        x: 161
+        x: 160
         y: 112
-        width: 14
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_8
       rect:
         serializedVersion: 2
-        x: 19
+        x: 16
         y: 64
-        width: 10
-        height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -331,12 +331,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_9
       rect:
         serializedVersion: 2
-        x: 67
+        x: 64
         y: 64
-        width: 10
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -352,12 +352,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_10
       rect:
         serializedVersion: 2
-        x: 115
+        x: 112
         y: 64
-        width: 10
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -373,12 +373,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_11
       rect:
         serializedVersion: 2
-        x: 163
+        x: 160
         y: 64
-        width: 10
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_12
       rect:
         serializedVersion: 2
-        x: 19
+        x: 16
         y: 16
-        width: 10
-        height: 15
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -415,12 +415,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_13
       rect:
         serializedVersion: 2
-        x: 67
+        x: 64
         y: 16
-        width: 10
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -436,12 +436,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_14
       rect:
         serializedVersion: 2
-        x: 115
+        x: 112
         y: 16
-        width: 10
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -457,12 +457,12 @@ TextureImporter:
       name: Basic Charakter Spritesheet_15
       rect:
         serializedVersion: 2
-        x: 163
+        x: 160
         y: 16
-        width: 10
+        width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
