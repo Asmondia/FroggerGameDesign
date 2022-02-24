@@ -40,9 +40,16 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Help");
-        targetSpace = previousSpace;
+        string collisonName = collision.collider.gameObject.name;
+        //Debug.Log(collisonName);
+        //Debug.Log(collisonName == "TilemapHillsTop" || collisonName == "TilemapHillsBot");
+        if(collisonName == "TilemapHillsTop" || collisonName == "TilemapHillsBot")
+        {
+            Debug.Log("How did i get here");
+            targetSpace = previousSpace;
+        }
     }
+    
     private void MoveTowardsTargetSpace()
     {
         myTransform.position = Vector2.MoveTowards(myTransform.position, targetSpace, mySpeed * Time.deltaTime);

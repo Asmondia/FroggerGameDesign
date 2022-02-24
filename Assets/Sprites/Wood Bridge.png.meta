@@ -1,22 +1,43 @@
 fileFormatVersion: 2
-guid: 7c48aa1c0a3f9a94d9553b8daa3a62de
+guid: 68592cf8c6e1b97459f1c26f1d1e69ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5922754114360663000
-    second: Free Cow Sprites_0
+      213: -6991682238223965860
+    second: Wood Bridge_0
   - first:
-      213: -1589296601377610331
-    second: Free Cow Sprites_1
+      213: 3999258874635837735
+    second: Wood Bridge_1
   - first:
-      213: 1201215636998452967
-    second: Free Cow Sprites_2
+      213: 7545448622434924110
+    second: Wood Bridge_2
   - first:
-      213: 8911921523293518287
-    second: Free Cow Sprites_3
+      213: 2129809265911492124
+    second: Wood Bridge_3
   - first:
-      213: -2414581210190814732
-    second: Free Cow Sprites_4
+      213: 2550720222733067382
+    second: Wood Bridge_4
+  - first:
+      213: -2565814726824033774
+    second: Wood Bridge_5
+  - first:
+      213: 599912578284497021
+    second: Wood Bridge_6
+  - first:
+      213: -3527656566126972483
+    second: Wood Bridge_7
+  - first:
+      213: 4558663141776708890
+    second: Wood Bridge_8
+  - first:
+      213: 3366595070105917687
+    second: Wood Bridge_9
+  - first:
+      213: -3807850585647016395
+    second: Wood Bridge_10
+  - first:
+      213: 9016654595811766133
+    second: Wood Bridge_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -106,13 +127,55 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Free Cow Sprites_0
+      name: Wood Bridge_0
       rect:
         serializedVersion: 2
         x: 0
+        y: 3
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c51a0404c0e88fe90800000000000000
+      internalID: -6991682238223965860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wood Bridge_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 7
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7216f7be1c8308730800000000000000
+      internalID: 3999258874635837735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wood Bridge_2
+      rect:
+        serializedVersion: 2
+        x: 34
         y: 32
-        width: 32
-        height: 32
+        width: 43
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 824ac8953862ecda0800000000000000
-      internalID: -5922754114360663000
+      spriteID: e46b13b6b81d6b860800000000000000
+      internalID: 7545448622434924110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Cow Sprites_1
+      name: Wood Bridge_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 38
+        y: 16
+        width: 35
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,71 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a5e628592fa1f9e0800000000000000
-      internalID: -1589296601377610331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Free Cow Sprites_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e6ffede1439ba010800000000000000
-      internalID: 1201215636998452967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Free Cow Sprites_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc9711678618dab70800000000000000
-      internalID: 8911921523293518287
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Free Cow Sprites_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f16e3dae2fad7ed0800000000000000
-      internalID: -2414581210190814732
+      spriteID: c1e6dfd3e3a9e8d10800000000000000
+      internalID: 2129809265911492124
       vertices: []
       indices: 
       edges: []

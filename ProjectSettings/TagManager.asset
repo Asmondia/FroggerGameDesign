@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Water
+    uniqueID: 2936136735
+    locked: 0
+  - name: Road
+    uniqueID: 3346094755
+    locked: 0
+  - name: Grass
+    uniqueID: 2841564457
+    locked: 0
+  - name: Hills Bot
+    uniqueID: 1441481625
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Character
+    uniqueID: 3849443791
+    locked: 0
+  - name: Hills Top
+    uniqueID: 3353944007
     locked: 0
