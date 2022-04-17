@@ -12,13 +12,14 @@ public class PlayerWater : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
+        Debug.Log(rb2D);
         myTransform = transform;
     }
 
     private void onTriggerEnter2D(Collider2D collision)
     {
 
-        string collisonName = collision.name;
+        string collisonName = collision.gameObject.name;
         Debug.Log(collisonName);
     }
 
