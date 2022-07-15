@@ -23,6 +23,7 @@ public class levelGenerate : MonoBehaviour
     [SerializeField] private GameObject water2grass;
     [SerializeField] private GameObject grass2water;
     [SerializeField] private GameObject roadMid;
+    private int numberOfSame = 0;
 
     private List<GameObject> levelComponents = new List<GameObject>();
     private string lastPlaced = "waterStart";
@@ -42,6 +43,7 @@ public class levelGenerate : MonoBehaviour
             generateLevel();
         }
     }
+ 
     private void generateLevel()
     {
         if (canCreate)
@@ -68,88 +70,74 @@ public class levelGenerate : MonoBehaviour
             }
         }
     } 
-
+    private int chanceToEnd(){
+        return (6 - numberOfSame);
+    }
     
     private void lastPlaceWater()
     {
-        var random = Random.Range(1, 101);
-        if (random >= 1 && random <= 40)
-        {
-            waterSmallBridgeCreate();
-        } else if (random >= 41 && random <= 80)
-        {
-            waterLargeBridgeCreate();
-        }
-        else if (random >= 81 && random <= 95)
-        {
-            if (lastPlaced == "waterStart")
-            {
+        if(lastPlaced != "waterStart"){
+            var endChance = Random.Range(1, chanceToEnd());
+            if(endChance == 1){
+                var newLand = Random.Range(1,10);
+                if (newLand == 1){
+                    water2grassCreate();
+                } else {
+                    water2roadCreate();
+                }
+            } else {
+                numberOfSame += 1;
+                var bridgeType = Random.Range(1,3);
+                if (bridgeType == 1){
+                    waterSmallBridgeCreate();
+                } else {
+                    waterLargeBridgeCreate();
+                }
+            }
+        } else {
+            numberOfSame += 1;
+            var bridgeType = Random.Range(1,3);
+            if (bridgeType == 1){
                 waterSmallBridgeCreate();
-            }
-            else 
-            {
-                water2roadCreate();
-            }
-        }
-        else if (random >= 96 && random <= 100)
-        {
-            if (lastPlaced == "waterStart")
-            {
+            } else {
                 waterLargeBridgeCreate();
-                
-            }
-            else
-            {
-                water2grassCreate();
             }
         }
-
     }
+
     private void lastPlaceRoad()
     {
-        var random = Random.Range(1, 101);
-        if (random >= 1 && random <= 80)
-        {
+        if(lastPlaced != "roadStart"){
+            var endChance = Random.Range(1, chanceToEnd());
+            if(endChance == 1){
+                var newLand = Random.Range(1,10);
+                if (newLand == 1){
+                    road2grassCreate();
+                } else {
+                    road2waterCreate();
+                }
+            } else {
+                numberOfSame += 1;
+            roadMidCreate();
+            }
+        } else {
+            numberOfSame += 1;
             roadMidCreate();
         }
-        else if (random >= 81 && random <= 95)
-        {
-            if (lastPlaced == "roadStart")
-            {
-                roadMidCreate();
-            }
-            else
-            {
-                road2waterCreate();
-            }
-        }
-        else if (random >= 96 && random <= 100)
-        {
-            if (lastPlaced == "roadStart")
-            {
-                roadMidCreate();
-            }
-            else
-            {
-                road2grassCreate();
-            }
-        }
     }
+
     private void lastPlaceGrassStart()
     { 
         grassMidCreate();
-
     }
+
     private void lastPlaceGrass()
     {
-        var random = Random.Range(1, 11);
-        if (random >= 1 && random <= 5)
-        {
-            grass2waterCreate();
-        }
-        else if (random >= 6 && random <= 10)
-        {
+        var random = Random.Range(1, 3);
+        if (random ==1 ){
             grass2roadCreate();
+        } else {
+            grass2waterCreate();
         }
     }
     private void setChildValues(GameObject parent)
@@ -194,6 +182,7 @@ public class levelGenerate : MonoBehaviour
     }
     private void water2roadCreate()
     {
+        numberOfSame = 0;
         GameObject created = Instantiate(water2road, new Vector3(0f, currentLevelEnd + 1.5f, 0f), Quaternion.identity);
         currentLevelEnd += 1f;
         created.GetComponent<levelDestroy>().setTransform(myTransform);
@@ -203,6 +192,7 @@ public class levelGenerate : MonoBehaviour
     }
     private void road2waterCreate()
     {
+        numberOfSame = 0;
         GameObject created = Instantiate(road2water, new Vector3(0f, currentLevelEnd + 1.5f, 0f), Quaternion.identity);
         currentLevelEnd += 1f;
         created.GetComponent<levelDestroy>().setTransform(myTransform);
@@ -212,6 +202,7 @@ public class levelGenerate : MonoBehaviour
     }
     private void road2grassCreate()
     {
+        numberOfSame = 0;
         GameObject created = Instantiate(road2grass, new Vector3(0f, currentLevelEnd + 2.5f, 0f), Quaternion.identity);
         currentLevelEnd += 1f;
         created.GetComponent<levelDestroy>().setTransform(myTransform);
@@ -221,6 +212,7 @@ public class levelGenerate : MonoBehaviour
     }
     private void grass2roadCreate()
     {
+        numberOfSame = 0;
         GameObject created = Instantiate(grass2road, new Vector3(0f, currentLevelEnd + 2.5f, 0f), Quaternion.identity);
         currentLevelEnd += 1f;
         created.GetComponent<levelDestroy>().setTransform(myTransform);
@@ -239,6 +231,7 @@ public class levelGenerate : MonoBehaviour
     }
     private void water2grassCreate()
     {
+        numberOfSame = 0;
         GameObject created = Instantiate(water2grass, new Vector3(0f, currentLevelEnd +2.5f, 0f), Quaternion.identity);
         currentLevelEnd += 1f;
         created.GetComponent<levelDestroy>().setTransform(myTransform);
@@ -248,6 +241,7 @@ public class levelGenerate : MonoBehaviour
     }
     private void grass2waterCreate()
     {
+        numberOfSame = 0;
         GameObject created = Instantiate(grass2water, new Vector3(0f, currentLevelEnd +2.5f, 0f), Quaternion.identity);
         currentLevelEnd += 1f;
         created.GetComponent<levelDestroy>().setTransform(myTransform);
