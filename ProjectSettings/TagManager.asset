@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bridge
+  - invulnPowerUp
+  - boostPowerUp
+  - water
+  - speedPowerUp
+  - cow
+  - player
+  - achievement
   layers:
   - Default
   - TransparentFX
@@ -58,4 +66,13 @@ TagManager:
     locked: 0
   - name: Hills Top
     uniqueID: 3353944007
+    locked: 0
+  - name: DeathScreen
+    uniqueID: 2763214551
+    locked: 0
+  - name: UIBot
+    uniqueID: 2450061533
+    locked: 0
+  - name: UITop
+    uniqueID: 3405994999
     locked: 0

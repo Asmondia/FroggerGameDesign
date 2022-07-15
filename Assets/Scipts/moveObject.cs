@@ -9,6 +9,12 @@ public class moveObject : MonoBehaviour
 
 
     // Update is called once per frame
+    private void Awake()
+    {
+        if (goLeft){
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
     void Update()
     {
         if (goLeft)
@@ -35,5 +41,17 @@ public class moveObject : MonoBehaviour
     public bool getLeft()
     {
         return goLeft;
+    }
+    public void setSpeed(float newSpeed)
+    {
+        this.speed = newSpeed;
+    }
+    public void setLeft(bool newLeft)
+    {
+        this.goLeft = newLeft;
+        if (goLeft)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 }
