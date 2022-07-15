@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5986290882190554231}
   - component: {fileID: 3458903204748654708}
   - component: {fileID: 3477431438238275595}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TilemapHillsBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 5241105398821105688}
   - component: {fileID: 3505298297034401434}
   - component: {fileID: 1998892075453387615}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TilemapHillsTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

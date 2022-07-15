@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 3893072573270227956}
   - component: {fileID: 5751174465597239125}
   - component: {fileID: 1655157126609554515}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TilemapHillsTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

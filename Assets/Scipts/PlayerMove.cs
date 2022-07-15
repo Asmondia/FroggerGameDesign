@@ -19,9 +19,13 @@ public class PlayerMove : MonoBehaviour
     private bool isBoosting = false;
     private GameObject deathScreen;
     private bool isAlive = true;
+    private bool moving;
     Animator animator;
     private AchievementManager achievManager;
     private bool hasTriedBack = false;
+    [SerializeField] public LayerMask wallLayer;
+    [SerializeField] public LayerMask waterLayer;
+    [SerializeField] public LayerMask safeLayer;
 
     // Start is called before the first frame update
     private void Awake()
@@ -42,16 +46,18 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        moving = Vector2.Distance((Vector2)myTransform.position, targetSpace) >= .2f;
+        if (myTransform.position.y > futhestForwards)
+        {
+            futhestForwards = myTransform.position.y;
+        }
+        MoveTowardsTargetSpace();
+        checkAlive();
         if (isAlive)
         {
             animator.SetBool("isInvuln", isInvuln);
             animator.SetBool("isBoosting", isBoosting);
-            var moving = Vector2.Distance((Vector2)myTransform.position, targetSpace) >= .2f;
-            if (myTransform.position.y > futhestForwards)
-            {
-                futhestForwards = myTransform.position.y;
-            }
-            MoveTowardsTargetSpace();
+            
             if (!moving)
             {
                 previousSpace = targetSpace;
@@ -70,10 +76,7 @@ public class PlayerMove : MonoBehaviour
                         death();
                     }
                 }
-                else
-                {
-                    deathCounter = 0;
-                }
+
 
             }
             if (isOnSafe)
@@ -88,12 +91,33 @@ public class PlayerMove : MonoBehaviour
                 {
                     targetSpace.x = -7.5f;
                 }
-                deathCounter = 0;
+            }
+        } else {
+            if(deathCounter == 0){
+                deathCounter = 1;
+                death();
             }
         }
    
         
 
+    }
+    private void checkAlive(){
+        Collider2D groundCheck = Physics2D.OverlapCircle(myTransform.position, 0.3f, safeLayer);
+        if (groundCheck != null){
+            isOnSafe = true;
+            moveObject moveScript = groundCheck.GetComponent<moveObject>();
+            floatSpeed = moveScript.getSpeed();
+            if(moveScript.getLeft()){
+                floatSpeed = floatSpeed * -1;
+            }
+        } else {
+            Collider2D waterCheck = Physics2D.OverlapCircle(myTransform.position, 0.1f, waterLayer);
+            isOnSafe = false;
+            if(waterCheck != null && !moving){
+                isAlive = false;
+            }
+        }
     }
     private void death()
     {
@@ -133,31 +157,7 @@ public class PlayerMove : MonoBehaviour
     {
         string collisonName = collision.gameObject.name;
 
-        if (collisonName == "TilemapHillsTop" || collisonName == "TilemapHillsBot")
-        {
-
-            targetSpace = previousSpace;
-        }
-        else if (collision.gameObject.tag == "water")
-        {
-            isOnWater = true;
-        }
-        else if (collision.gameObject.tag == "bridge")
-        {
-            isOnSafe = true;
-
-            moveObject script = collision.gameObject.GetComponent<moveObject>();
-            if (script.getLeft())
-            {
-                floatSpeed = -1f * script.getSpeed();
-            }
-            else
-            {
-                floatSpeed = 1f * script.getSpeed();
-            }
-
-        }
-        else if (collision.gameObject.tag == "invulnPowerUp")
+        if (collision.gameObject.tag == "invulnPowerUp")
         {
             Destroy(collision.gameObject);
             isInvuln = true;
@@ -227,25 +227,25 @@ public class PlayerMove : MonoBehaviour
             isOnSafe = false;
         }
     }
-    private void OnCollisionStay2D(Collision2D collision) 
-    {
-        if (collision.gameObject.tag == "bridge")
-        {
-            isOnSafe = true;
-        }
-        if (collision.gameObject.tag == "water")
-        {
-            isOnWater = true;
-        }
-        else if (collision.gameObject.tag == "cow")
-        {
-            if (!isInvuln && isAlive)
-            {
-                death();
-            }
+    // private void OnCollisionStay2D(Collision2D collision) 
+    // {
+    //     if (collision.gameObject.tag == "bridge")
+    //     {
+    //         isOnSafe = true;
+    //     }
+    //     if (collision.gameObject.tag == "water")
+    //     {
+    //         isOnWater = true;
+    //     }
+    //     else if (collision.gameObject.tag == "cow")
+    //     {
+    //         if (!isInvuln && isAlive)
+    //         {
+    //             death();
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
 
 
@@ -257,35 +257,36 @@ public class PlayerMove : MonoBehaviour
     {
         if (isAlive)
         {
+            Vector2 possibleTarget = transform.position;
             if (Input.GetKey(KeyCode.W) ^ Input.GetKey(KeyCode.S))
             {
                 if (Input.GetKey(KeyCode.W))
                 {
                     //targetSpace += Vector2Int.up;
-                    targetSpace.y += 0.3f;
-                    targetSpace.y = Mathf.RoundToInt(targetSpace.y);
-                    targetSpace.y += 0.7f;
+                    possibleTarget.y += 0.3f;
+                    possibleTarget.y = Mathf.RoundToInt(possibleTarget.y);
+                    possibleTarget.y += 0.7f;
 
                 }
 
                 else if (Input.GetKey(KeyCode.S))
                 {
                     //targetSpace += Vector2Int.down;
-                    targetSpace.y += -0.7f;
-                    targetSpace.y = Mathf.RoundToInt(targetSpace.y);
-                    targetSpace.y += -0.3f;
-                    if (targetSpace.y < -3.3f)
+                    possibleTarget.y += -0.7f;
+                    possibleTarget.y = Mathf.RoundToInt(possibleTarget.y);
+                    possibleTarget.y += -0.3f;
+                    if (possibleTarget.y < -3.3f)
                     {
-                        targetSpace.y = -3.3f;
+                        possibleTarget.y = -3.3f;
                         if (!hasTriedBack)
                         {
                             hasTriedBack = true;
                             achievManager.NotifyAchievement(1, "Try to go back");
 
                         }
-                    }else if (targetSpace.y < (futhestForwards - 4f))
+                    }else if (possibleTarget.y < (futhestForwards - 4f))
                     {
-                        targetSpace.y = (futhestForwards - 4f);
+                        possibleTarget.y = (futhestForwards - 4f);
                     }
 
                 }
@@ -296,24 +297,31 @@ public class PlayerMove : MonoBehaviour
                 if (Input.GetKey(KeyCode.A))
                 {
                     //targetSpace += Vector2Int.left;
-                    targetSpace.x += -0.5f;
-                    targetSpace.x = Mathf.RoundToInt(targetSpace.x);
-                    targetSpace.x += -0.5f;
-                    if (targetSpace.x < -7.5f)
+                    possibleTarget.x += -0.5f;
+                    possibleTarget.x = Mathf.RoundToInt(possibleTarget.x);
+                    possibleTarget.x += -0.5f;
+                    if (possibleTarget.x < -7.5f)
                     {
-                        targetSpace.x = -7.5f;
+                        possibleTarget.x = -7.5f;
                     }
                 }
                 else if (Input.GetKey(KeyCode.D))
                 {
-                    targetSpace.x += 0.5f;
-                    targetSpace.x = Mathf.RoundToInt(targetSpace.x);
-                    targetSpace.x += 0.5f;
-                    if (targetSpace.x > 7.5f)
+                    possibleTarget.x += 0.5f;
+                    possibleTarget.x = Mathf.RoundToInt(possibleTarget.x);
+                    possibleTarget.x += 0.5f;
+                    if (possibleTarget.x > 7.5f)
                     {
-                        targetSpace.x = 7.5f;
+                        possibleTarget.x = 7.5f;
                     }
                 }
+            }
+            Collider2D wallCheck = Physics2D.OverlapCircle(possibleTarget, 0.3f, wallLayer);
+            if(wallCheck == null){
+                Debug.Log("Can move to: " + possibleTarget.x + "," + possibleTarget.y);
+                targetSpace = possibleTarget;
+            } else {
+                Debug.Log("Cannot move to: " + possibleTarget.x + "," + possibleTarget.y);
             }
         }
     }

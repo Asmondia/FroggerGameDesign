@@ -1003,6 +1003,15 @@ MonoBehaviour:
   setSpeed: 5
   isOnWater: 0
   isOnSafe: 0
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
+  safeLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &199089995
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2260,7 +2269,7 @@ GameObject:
   - component: {fileID: 1319020634}
   - component: {fileID: 1319020633}
   - component: {fileID: 1319020632}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TilemapHillsBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2920,8 +2929,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievementTextObject: {fileID: 0}
   achievementBackground: {fileID: 0}
-  backgroundTarget: {x: 0, y: 0, z: 0}
-  textTarget: {x: 0, y: 0, z: 0}
+  textTransform: {fileID: 0}
+  backgroundTransform: {fileID: 0}
+  backgroundTarget: {x: 0, y: 0}
+  textTarget: {x: 0, y: 0}
 --- !u!1 &1585086368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4927,7 +4938,7 @@ GameObject:
   - component: {fileID: 1924982066}
   - component: {fileID: 1924982065}
   - component: {fileID: 1924982064}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TilemapHillsTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5868,6 +5879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bridgeSmall
       objectReference: {fileID: 0}
+    - target: {fileID: 1108543862660753111, guid: 2ef9264b9f8314240bbdc92ac6195bf2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef9264b9f8314240bbdc92ac6195bf2, type: 3}
 --- !u!1001 &5920109483886418130
@@ -5924,6 +5939,10 @@ PrefabInstance:
     - target: {fileID: 8875812173311416288, guid: 0b8999f4b29123e44bed0f1417b566bc, type: 3}
       propertyPath: m_Name
       value: bridgeLarge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875812173311416288, guid: 0b8999f4b29123e44bed0f1417b566bc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b8999f4b29123e44bed0f1417b566bc, type: 3}
